@@ -24,18 +24,20 @@
 
     <TextView
         android:id="@+id/show_more"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mcqAnswerListHolderId"
         android:drawablePadding="5dp"
         android:drawableRight="@drawable/arrow_down"
         android:paddingLeft="10dp"
+        android:paddingRight="20dp"
         android:paddingTop="10dp"
+        android:gravity="right"
         android:text="Ans"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/mcqAnsHolderViewId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/show_more"

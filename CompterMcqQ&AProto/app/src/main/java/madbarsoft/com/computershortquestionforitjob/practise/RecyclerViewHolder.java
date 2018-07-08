@@ -15,7 +15,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     public RecyclerViewHolder(final View v) {
         super(v);
         mcqAnswerListHolderId = (TextView) v.findViewById(R.id.mcqAnswerListHolderId);
-        contentLayout = (TextView) v.findViewById(R.id.content);
+        contentLayout = (TextView) v.findViewById(R.id.mcqAnsHolderViewId);
         showMore = (TextView) v.findViewById(R.id.show_more);
         questionTitleId = (TextView) v.findViewById(R.id.questionTitleId);
     }
