@@ -1,0 +1,25 @@
+[
+	{
+		"id":"1",
+		"categoryId":"99",
+		"questionTitle":"Capital of Bangladesh from jason data ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Borisal","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Dhaka","isRightAns":"1"},
+			{"id":"3","questionId":"1","title":"a) Khulna","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) Shariatpur","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"2",
+		"categoryId":"99",
+		"questionTitle":"My Home Town ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Borisal","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Dhaka","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Khulna","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) Shariatpur","isRightAns":"1"}
+		]
+	}
+
+]

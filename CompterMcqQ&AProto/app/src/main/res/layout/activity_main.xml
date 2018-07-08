@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/homePageFrameLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
+                <madbarsoft.com.computershortquestionforitjob.utility.Textview_lato_thin
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6"
+                    android:gravity="center"
+                    android:text="Retain and Viba Short Question and Answer \nAbout Computer for IT Job"
+                    android:textColor="#ffff"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/homePageFrameLayoutId"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <madbarsoft.com.computershortquestionforitjob.utility.TextView_Lato
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Upcoming Schedules"
+                android:textColor="@color/colorGray"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/computerHistory10CardId"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1.0"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="7dp"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardview_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+                            <View
+                                android:layout_width="5dp"
+                                android:layout_height="100dp"
+                                android:background="@color/colorOrange"></View>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp">
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.TextView_Lato
+                                    android:id="@+id/computerHistory10categoryTitleHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Computer Histor"
+                                    android:textColor="@color/colorOrange"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.Textview_lato_thin
+                                    android:id="@+id/computerHistory10categoryStatusHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Number Of Question: 50"
+                                    android:textColor="@color/colorLightGray"
+                                    android:textSize="10dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="fill_parent"
+                                    android:gravity="bottom">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:gravity="center_horizontal"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
+                                        android:orientation="horizontal"
+                                        >
+
+                                        <Button
+                                            android:id="@+id/computerHistory10testBtnId"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1.0"
+                                            android:background="@color/colorOrange"
+                                            android:layout_margin="1dp"
+                                            android:onClick="onclickTestHandeler"
+                                            android:text="Test"/>
+
+                                        <Button
+                                            android:id="@+id/computerHistory10practiseBtnId"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/colorOrange"
+                                            android:layout_margin="1dp"
+                                            android:onClick="onclickPractiseHandeler"
+                                            android:text="Practise"
+                                            android:layout_weight="1.0"/>
+
+                                    </LinearLayout>
+                                </RelativeLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/computerHardware11CardId"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1.0"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="7dp"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardview_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+                            <View
+                                android:layout_width="5dp"
+                                android:layout_height="100dp"
+                                android:background="@color/colorOrange"></View>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp">
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.TextView_Lato
+                                    android:id="@+id/computerHardware11categoryTitleHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Computer Other"
+                                    android:textColor="@color/colorGray"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.Textview_lato_thin
+                                    android:id="@+id/computerHardware11categoryStatusHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Number Of Question: 50"
+                                    android:textColor="@color/colorLightGray"
+                                    android:textSize="10dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="fill_parent"
+                                    android:gravity="bottom">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:gravity="center_horizontal"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
+                                        android:orientation="horizontal"
+                                        >
+
+                                        <Button
+                                            android:id="@+id/computerHardware11testBtnId"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1.0"
+                                            android:background="@color/colorOrange"
+                                            android:onClick="onclickTestHandeler"
+                                            android:layout_margin="1dp"
+                                            android:text="Test"/>
+
+                                        <Button
+                                            android:id="@+id/computerHardware11practiseBtnId"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/colorOrange"
+                                            android:layout_margin="1dp"
+                                            android:text="Practise"
+                                            android:onClick="onclickPractiseHandeler"
+                                            android:layout_weight="1.0"/>
+
+                                    </LinearLayout>
+                                </RelativeLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

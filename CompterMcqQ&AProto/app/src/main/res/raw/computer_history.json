@@ -1,0 +1,36 @@
+[
+	{
+		"id":"1",
+		"categoryId":"10",
+		"questionTitle":"First Computer ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Abacus","isRightAns":"1"},
+			{"id":"2","questionId":"1","title":"a) Intel","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Microsoft","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) IBM","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"2",
+		"categoryId":"10",
+		"questionTitle":"Father of Computer?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Ame ","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Tome","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Charld Babez","isRightAns":"1"},
+			{"id":"4","questionId":"1","title":"a) Keona","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"3",
+		"categoryId":"10",
+		"questionTitle":"First Computer Model In Bangladesh ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Windows","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Mac","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Linx","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) IBM-1620","isRightAns":"1"}
+		]
+	}
+
+]
