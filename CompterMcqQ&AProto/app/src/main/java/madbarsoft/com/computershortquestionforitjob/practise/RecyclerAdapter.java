@@ -2,30 +2,21 @@ package madbarsoft.com.computershortquestionforitjob.practise;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.widget.Toast;
-
 import java.util.List;
 import madbarsoft.com.computershortquestionforitjob.R;
 import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqAnswerModel;
 import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqQuestionAnswerModel;
-import madbarsoft.com.computershortquestionforitjob.questionanswer.QuestionAnswerModel;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     List<McqQuestionAnswerModel> mcqQuestionAndAnsList;
     private LayoutInflater layoutInflater;
-    private Animation animationUp, animationDown;
     private Context context;
-    private final int COUNTDOWN_RUNNING_TIME = 100;
 
-    public RecyclerAdapter(Context context, Animation animationUp, Animation animationDown, List<McqQuestionAnswerModel> mcqQuestionAndAnsList) {
+    public RecyclerAdapter(Context context, List<McqQuestionAnswerModel> mcqQuestionAndAnsList) {
         this.layoutInflater = LayoutInflater.from(context);
-        this.animationDown = animationDown;
-        this.animationUp = animationUp;
         this.context = context;
         this.mcqQuestionAndAnsList = mcqQuestionAndAnsList;
     }
