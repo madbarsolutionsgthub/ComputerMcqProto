@@ -12,13 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
+import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
+
+import at.blogc.android.views.ExpandableTextView;
 import madbarsoft.com.computershortquestionforitjob.R;
 import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqAnswerModel;
 import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqQuestionAnswerModel;
+import madbarsoft.com.computershortquestionforitjob.utility.DelaTimer;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     List<McqQuestionAnswerModel> mcqQuestionAndAnsList;
@@ -55,21 +59,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
         }
         holder.getQuestionTitleId().setText(mcqQuestionAndAnsList.get(position).getTitle() );
         holder.getMcqAnswerListHolderId().setText(mcqAnsList);
-        holder.getContentLayout().setText(correctAns);
-        holder.getShowMore().setOnClickListener(new View.OnClickListener() {
+        holder.getExpandableTextView().setText(correctAns);
+
+        final ExpandableTextView expandableTextView =  holder.getExpandableTextView();
+
+// set animation duration via code, but preferable in your layout files by using the animation_duration attribute
+        expandableTextView.setAnimationDuration(750L);
+
+        // set interpolators for both expanding and collapsing animations
+        expandableTextView.setInterpolator(new OvershootInterpolator());
+
+// or set them separately
+        expandableTextView.setExpandInterpolator(new OvershootInterpolator());
+        expandableTextView.setCollapseInterpolator(new OvershootInterpolator());
+
+        holder.getShow_more().setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if (!holder.getContentLayout().isShown()) {
-//                    TextView v = holder.getContentLayout();
-//                    v.startAnimation( animShow );
-                    holder.getContentLayout().setVisibility(View.VISIBLE);
-                    holder.getShowMore().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_up, 0);
-                } else {
-                    holder.getContentLayout().setVisibility(View.GONE);
-                    holder.getShowMore().setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.arrow_down, 0);
+            public void onClick(final View v)
+            {
+                if (expandableTextView.isExpanded())
+                {
+                    expandableTextView.collapse();
+                    holder.getShow_more().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
+                }
+                else
+                {
+                    expandableTextView.expand();
+                    holder.getShow_more().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_up, 0);
 
                 }
-
             }
         });
     }

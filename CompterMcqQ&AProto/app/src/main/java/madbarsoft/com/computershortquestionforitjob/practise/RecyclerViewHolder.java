@@ -2,22 +2,42 @@ package madbarsoft.com.computershortquestionforitjob.practise;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import at.blogc.android.views.ExpandableTextView;
 import madbarsoft.com.computershortquestionforitjob.R;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     private TextView mcqAnswerListHolderId;
-    private TextView showMore;
-    private TextView contentLayout;
     private TextView questionTitleId;
+    private TextView show_more;
+    private ExpandableTextView expandableTextView;
 
     public RecyclerViewHolder(final View v) {
         super(v);
+        show_more = (TextView) v.findViewById(R.id.show_more);
         mcqAnswerListHolderId = (TextView) v.findViewById(R.id.mcqAnswerListHolderId);
-        contentLayout = (TextView) v.findViewById(R.id.mcqAnsHolderViewId);
-        showMore = (TextView) v.findViewById(R.id.show_more);
         questionTitleId = (TextView) v.findViewById(R.id.questionTitleId);
+        expandableTextView = (ExpandableTextView) v.findViewById(R.id.expandableTextView);
+    }
+
+
+    public TextView getShow_more() {
+        return show_more;
+    }
+
+    public void setShow_more(TextView show_more) {
+        this.show_more = show_more;
+    }
+
+    public ExpandableTextView getExpandableTextView() {
+        return expandableTextView;
+    }
+
+    public void setExpandableTextView(ExpandableTextView expandableTextView) {
+        this.expandableTextView = expandableTextView;
     }
 
     public TextView getMcqAnswerListHolderId() {
@@ -26,22 +46,6 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
     public void setMcqAnswerListHolderId(TextView mcqAnswerListHolderId) {
         this.mcqAnswerListHolderId = mcqAnswerListHolderId;
-    }
-
-    public TextView getShowMore() {
-        return showMore;
-    }
-
-    public void setShowMore(TextView showMore) {
-        this.showMore = showMore;
-    }
-
-    public TextView getContentLayout() {
-        return contentLayout;
-    }
-
-    public void setContentLayout(TextView contentLayout) {
-        this.contentLayout = contentLayout;
     }
 
     public TextView getQuestionTitleId() {
