@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Date;
+
 import madbarsoft.com.computershortquestionforitjob.MainActivity;
 import madbarsoft.com.computershortquestionforitjob.R;
 import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqQuestionAnswerModel;
@@ -18,9 +20,11 @@ import madbarsoft.com.computershortquestionforitjob.mcqquestionandanswer.McqQues
 public class McqTestFinishFragment extends Fragment {
     Button  btnHome;
     private Context context;
+    private int categoryId=0;
     private int numberOfCorrectAns=0;
     private int takenNumberOfQuestion;
     private McqQuestionAnswerModel mcqQuestionAnswerModel;
+
 
     public McqTestFinishFragment() {
         // Required empty public constructor
@@ -35,13 +39,15 @@ public class McqTestFinishFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        mcqQuestionAnswerModel = (McqQuestionAnswerModel) getArguments().getSerializable("mcqQuestionAnswerModel");
+        categoryId = getArguments().getInt("categoryId");
         takenNumberOfQuestion = getArguments().getInt("takenNumberOfQuestion");
         numberOfCorrectAns = getArguments().getInt("numberOfCorrectAns");
+
+
         View vu = inflater.inflate(R.layout.fragment_mcq_test_finish, container, false);
         TextView examStatusId = vu.findViewById(R.id.examStatusId);
 
-        examStatusId.setText("Take Question : "+takenNumberOfQuestion+" Correct Ans: "+numberOfCorrectAns);
+        examStatusId.setText("Take Question : "+takenNumberOfQuestion+" Correct Ans: "+numberOfCorrectAns+" CategoryId: "+categoryId);
 
         btnHome = (Button)vu.findViewById(R.id.btnHomeId);
         btnHome.setOnClickListener(new View.OnClickListener() {

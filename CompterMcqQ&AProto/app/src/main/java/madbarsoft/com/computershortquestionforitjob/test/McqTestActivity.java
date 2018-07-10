@@ -5,11 +5,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import madbarsoft.com.computershortquestionforitjob.R;
@@ -23,6 +25,7 @@ public class McqTestActivity extends AppCompatActivity implements INextBtnClickL
     int numberOfCorrectAns = 0;
     int categoryId = 10;
     int takenNumberOfQuestion=1;
+    TestService testService;
     List<McqQuestionAnswerModel> mcqQuestionAndAnsList = new ArrayList<>();
     McqQuestionAnswerModel mcqQuestionAnswerModel;
 
@@ -30,6 +33,14 @@ public class McqTestActivity extends AppCompatActivity implements INextBtnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mcq_test);
+
+       testService = new TestService(getApplicationContext());
+        testService.createUser("hi", "hello", "fsdfds");
+
+        HashMap<String, String> user = testService.getUserDetails();
+        String name = user.get(testService.USER_NAME_KEY);
+
+        Toast.makeText(this, "Data: "+name, Toast.LENGTH_SHORT).show();
 
         Intent intent = getIntent();
         categoryId = intent.getIntExtra("categoryId",10);
@@ -80,10 +91,9 @@ public class McqTestActivity extends AppCompatActivity implements INextBtnClickL
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             McqTestFinishFragment mcqTestFinishFragment = new McqTestFinishFragment();
             Bundle bundle = new Bundle();
-            bundle.putInt("currentDataPosition", currentDataPosition);
+            bundle.putInt("categoryId", categoryId);
             bundle.putInt("takenNumberOfQuestion", takenNumberOfQuestion);
             bundle.putInt("numberOfCorrectAns", numberOfCorrectAns);
-            bundle.putSerializable("mcqQuestionAnswerModel", mcqQuestionAnswerModel);
             mcqTestFinishFragment.setArguments(bundle);
             fragmentTransaction.replace(R.id.fragmentContainerId, mcqTestFinishFragment);
             fragmentTransaction.commit();
