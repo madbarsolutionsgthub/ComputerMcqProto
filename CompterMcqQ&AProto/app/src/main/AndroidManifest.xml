@@ -19,7 +19,8 @@
         <activity android:name=".contactus.ContactUsActivity" />
         <activity android:name=".rateus.RateUsActivity" />
         <activity android:name=".practise.PractiseActivity" />
-        <activity android:name=".test.McqTestActivity"></activity>
+        <activity android:name=".test.McqTestActivity" />
+        <activity android:name=".selftestresult.SelfTestResultActivity"></activity>
     </application>
 
 </manifest>

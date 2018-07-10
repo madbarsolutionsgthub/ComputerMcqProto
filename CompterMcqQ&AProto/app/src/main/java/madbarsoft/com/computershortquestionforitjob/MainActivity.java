@@ -21,14 +21,28 @@ import madbarsoft.com.computershortquestionforitjob.practise.PractiseActivity;
 import madbarsoft.com.computershortquestionforitjob.questioncategory.CategoryModel;
 import madbarsoft.com.computershortquestionforitjob.questioncategory.CategoryService;
 import madbarsoft.com.computershortquestionforitjob.rateus.RateUsActivity;
+import madbarsoft.com.computershortquestionforitjob.selftestresult.SelfTestResultActivity;
 import madbarsoft.com.computershortquestionforitjob.test.McqTestActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button btnResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnResult = findViewById(R.id.selfTestResultBtnId);
+
+        btnResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(MainActivity.this, SelfTestResultActivity.class );
+                inten.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(inten);
+
+            }
+        });
     }
 
     public void onclickPractiseHandeler(View view){

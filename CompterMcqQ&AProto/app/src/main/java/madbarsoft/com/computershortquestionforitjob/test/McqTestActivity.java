@@ -11,6 +11,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class McqTestActivity extends AppCompatActivity implements INextBtnClickL
     int categoryId = 10;
     int takenNumberOfQuestion=1;
     TestService testService;
+    TestModel testModel;
     List<McqQuestionAnswerModel> mcqQuestionAndAnsList = new ArrayList<>();
     McqQuestionAnswerModel mcqQuestionAnswerModel;
 
@@ -34,13 +36,19 @@ public class McqTestActivity extends AppCompatActivity implements INextBtnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mcq_test);
 
-       testService = new TestService(getApplicationContext());
-        testService.createUser("hi", "hello", "fsdfds");
+//        testModel = new TestModel();
+//        testModel.setCategoryId(categoryId);
+//        testModel.setTakenQuestion(takenNumberOfQuestion);
+//        testModel.setCorrectAns(numberOfCorrectAns);
+//        testModel.setTestData(new Date());
+//
+//       testService = new TestService(getApplicationContext());
+//        testService.createUser(testModel.getCategoryId(), testModel.getTakenQuestion(), testModel.getCorrectAns(), testModel.getTestData());
 
-        HashMap<String, String> user = testService.getUserDetails();
-        String name = user.get(testService.USER_NAME_KEY);
-
-        Toast.makeText(this, "Data: "+name, Toast.LENGTH_SHORT).show();
+//        HashMap<String, String> user = testService.getUserDetails();
+//        String name = user.get(testService.CORRECT_ANS);
+//
+//        Toast.makeText(this, "Correct Ans : "+name, Toast.LENGTH_SHORT).show();
 
         Intent intent = getIntent();
         categoryId = intent.getIntExtra("categoryId",10);
