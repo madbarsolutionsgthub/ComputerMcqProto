@@ -13,12 +13,34 @@
 	{
 		"id":"2",
 		"categoryId":"99",
-		"questionTitle":"My Home Town ?",
+		"questionTitle":"Daveloper Home Town ?",
 		"ansList":[
 			{"id":"1","questionId":"1","title":"a) Borisal","isRightAns":"0"},
 			{"id":"2","questionId":"1","title":"a) Dhaka","isRightAns":"0"},
 			{"id":"3","questionId":"1","title":"a) Khulna","isRightAns":"0"},
-			{"id":"4","questionId":"1","title":"a) Shariatpur | Capital of Bangladesh from jason data Capital of Bangladesh from jason dataCapital of Bangladesh from jason data","isRightAns":"1"}
+			{"id":"4","questionId":"1","title":"a) Shariatpur","isRightAns":"1"}
+		]
+	},
+	{
+		"id":"3",
+		"categoryId":"99",
+		"questionTitle":"CEO of Computer info Tech ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Salim Vi","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Vaskor","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Solumin Vi","isRightAns":"1"},
+			{"id":"4","questionId":"1","title":"a) Shovo Vi","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"4",
+		"categoryId":"99",
+		"questionTitle":"Uses Language of LMS development?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Bangla","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) English","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Hibroo","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) Java","isRightAns":"1"}
 		]
 	}
 

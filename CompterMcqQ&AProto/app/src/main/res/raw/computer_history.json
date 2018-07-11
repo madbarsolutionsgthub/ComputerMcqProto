@@ -31,6 +31,50 @@
 			{"id":"3","questionId":"1","title":"a) Linx","isRightAns":"0"},
 			{"id":"4","questionId":"1","title":"a) IBM-1620","isRightAns":"1"}
 		]
+	},
+	{
+		"id":"4",
+		"categoryId":"10",
+		"questionTitle":"Kawran Bazer agun lagce kobe?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Aj ","isRightAns":"1"},
+			{"id":"2","questionId":"1","title":"a) janina","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) porso","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) doy din age","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"5",
+		"categoryId":"10",
+		"questionTitle":"Ame use kor ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Windows","isRightAns":"1"},
+			{"id":"2","questionId":"1","title":"a) Mac","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Linx","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) IBM-1620","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"6",
+		"categoryId":"10",
+		"questionTitle":"Father of Google?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Venton g carf ","isRightAns":"1"},
+			{"id":"2","questionId":"1","title":"a) Tome","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Charld Babez","isRightAns":"0"},
+			{"id":"4","questionId":"1","title":"a) No one","isRightAns":"0"}
+		]
+	},
+	{
+		"id":"7",
+		"categoryId":"10",
+		"questionTitle":"Inventor of Mouse ?",
+		"ansList":[
+			{"id":"1","questionId":"1","title":"a) Sakhasena","isRightAns":"0"},
+			{"id":"2","questionId":"1","title":"a) Khalida","isRightAns":"0"},
+			{"id":"3","questionId":"1","title":"a) Doglas Angle Bard","isRightAns":"1"},
+			{"id":"4","questionId":"1","title":"a) Salim Vi","isRightAns":"0"}
+		]
 	}
 
 ]

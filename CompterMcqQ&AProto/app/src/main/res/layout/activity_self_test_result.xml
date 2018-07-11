@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="5dp"
-                android:text="Upcoming Schedules"
+                android:text="Self Test Result"
                 android:textColor="@color/colorGray"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -49,85 +49,13 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/computerHistory10CardId"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1.0"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="7dp"
-                    card_view:cardCornerRadius="2dp"
-                    card_view:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/cardview_bg">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_margin="5dp"
-                            android:orientation="horizontal"
-                            android:weightSum="5">
-                            <View
-                                android:layout_width="5dp"
-                                android:layout_height="100dp"
-                                android:background="@color/colorOrange"></View>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical"
-                                android:orientation="vertical"
-                                android:paddingLeft="10dp">
-
-                                <madbarsoft.com.computershortquestionforitjob.utility.TextView_Lato
-                                    android:id="@+id/computerHistory10categoryTitleHolderId"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Computer Histor"
-                                    android:textColor="@color/colorOrange"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold" />
-
-                                <madbarsoft.com.computershortquestionforitjob.utility.Textview_lato_thin
-                                    android:id="@+id/computerHistoryTestResultHolderId"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:text="Number Of Question: 50"
-                                    android:textColor="@color/colorLightGray"
-                                    android:textSize="10dp" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="fill_parent"
-                                    android:gravity="bottom">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="40dp"
-                                        android:gravity="center_horizontal"
-                                        android:paddingTop="5dp"
-                                        android:paddingBottom="5dp"
-                                        android:orientation="horizontal"
-                                        >
-
-                                    </LinearLayout>
-                                </RelativeLayout>
-
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
                     android:id="@+id/computerHardware11CardId"
                     android:layout_width="match_parent"
                     android:layout_weight="1.0"
-                    android:layout_height="120dp"
+                    android:layout_height="220dp"
                     android:layout_marginTop="7dp"
                     card_view:cardCornerRadius="2dp"
                     card_view:cardElevation="2dp">
@@ -139,7 +67,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="80dp"
+                            android:layout_height="200dp"
                             android:layout_gravity="center_vertical"
                             android:layout_margin="5dp"
                             android:orientation="horizontal"
@@ -160,8 +88,8 @@
                                     android:id="@+id/computerHardware11categoryTitleHolderId"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Computer Other"
-                                    android:textColor="@color/colorGray"
+                                    android:text="Computer History"
+                                    android:textColor="@color/colorPrimary"
                                     android:textSize="12dp"
                                     android:textStyle="bold" />
 
@@ -171,7 +99,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:text="Number Of Question: 50"
-                                    android:textColor="@color/colorLightGray"
+                                    android:textColor="@color/colorOrange"
                                     android:textSize="10dp" />
 
                                 <RelativeLayout
@@ -179,16 +107,12 @@
                                     android:layout_height="fill_parent"
                                     android:gravity="bottom">
 
-                                    <LinearLayout
+                                    <com.github.mikephil.charting.charts.PieChart
                                         android:layout_width="match_parent"
-                                        android:layout_height="40dp"
-                                        android:gravity="center_horizontal"
-                                        android:paddingTop="5dp"
-                                        android:paddingBottom="5dp"
-                                        android:orientation="horizontal"
-                                        >
+                                        android:layout_height="150dp"
+                                        android:id="@+id/idPieChart">
 
-                                    </LinearLayout>
+                                    </com.github.mikephil.charting.charts.PieChart>
                                 </RelativeLayout>
 
                             </LinearLayout>
@@ -196,7 +120,93 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
+                <android.support.v7.widget.CardView
+                    android:id="@+id/computerHistory10CardId"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1.0"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="7dp"
+                    card_view:cardCornerRadius="2dp"
+                    card_view:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardview_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+                            <View
+                                android:layout_width="5dp"
+                                android:layout_height="100dp"
+                                android:background="@color/colorOrange"></View>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp">
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.TextView_Lato
+                                    android:id="@+id/computerHistory10categoryTitleHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Computer hardware"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+                                <madbarsoft.com.computershortquestionforitjob.utility.Textview_lato_thin
+                                    android:id="@+id/computerHistoryTestResultHolderId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Number Of Question: 50"
+                                    android:textColor="@color/colorOrange"
+                                    android:textSize="10dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="fill_parent"
+                                    android:gravity="bottom">
+
+                                <com.github.mikephil.charting.charts.PieChart
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/idPieChart2">
+                                </com.github.mikephil.charting.charts.PieChart>
+
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+
+
+
+
+
+
+        </LinearLayout>
 
 
         </LinearLayout>

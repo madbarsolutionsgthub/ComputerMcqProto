@@ -16,6 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+}
+repositories {
+    mavenCentral()
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -28,4 +36,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'at.blogc:expandabletextview:1.0.5'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }
