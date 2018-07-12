@@ -11,18 +11,26 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.LargeValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
@@ -43,10 +51,20 @@ public class SelfTestResultActivity extends AppCompatActivity {
     TestModel testModel;
     TextView computerHistoryTestResultHolderId, computerHardWareTestResultHolderId;
     PieChart pieChart, pieChart2;
-    private LineChart mChart;
     private LineChart lineChart;
     LineDataSet lineDataSet;
     LimitLine lowerLimitLine,upperLimitLine;
+
+    BarChart chart ;
+    ArrayList<BarEntry> BARENTRY ;
+    ArrayList<String> barEntryLabels ;
+    BarDataSet Bardataset ;
+    BarData BARDATA ;
+
+    float barWidth;
+    float barSpace;
+    float groupSpace;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -54,77 +72,84 @@ public class SelfTestResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_test_result);
 
-         //line chart
-
-        //        lineChart.getAxisLeft().addLimitLine(lowerLimitLine(2,"Lower Limit",2,12,Color.YELLOW,Color.BLUE));
-//        lineChart.getAxisLeft().addLimitLine(upperLimitLine(5,"Upper Limit",2,12,Color.YELLOW,Color.BLUE));
-
-//        LimitLine upper_limit = new LimitLine(10, "Upper Limit");
-//        upper_limit.setLineWidth(2);
-//        upper_limit.enableDashedLine(10f, 10f, 0f);
-//        upper_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
-//        upper_limit.setTextSize(10f);
-//
-//        LimitLine lower_limit = new LimitLine(10f, "Lower Limit");
-//        lower_limit.setLineWidth(4f);
-//        lower_limit.enableDashedLine(10f, 10f, 0f);
-//        lower_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-//        lower_limit.setTextSize(10f);
-
-        ArrayList<Entry> lineEntries = new ArrayList<>();
-
-        lineChart = (LineChart) findViewById(R.id.linechart);
-
-        lineEntries = new ArrayList<Entry>();
-        lineEntries.add(new Entry(1, 10));
-        lineEntries.add(new Entry(2, 40));
-        lineEntries.add(new Entry(3, 20));
-        lineEntries.add(new Entry(4, 30));
-        lineEntries.add(new Entry(5, 30));
-//        lineEntries.add(new Entry(5, 3));
-//        lineEntries.add(new Entry(6, 1));
-//        lineEntries.add(new Entry(7, 5));
-//        lineEntries.add(new Entry(8, 7));
-//        lineEntries.add(new Entry(9, 6));
-//        lineEntries.add(new Entry(10, 4));
-//        lineEntries.add(new Entry(11, 5));
-
-        lineDataSet = new LineDataSet(lineEntries, "Oil Price");
-        lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
-        lineDataSet.setHighlightEnabled(true);
-      // lineDataSet.setLineWidth(5);
-        lineDataSet.setColor(Color.BLUE);
-        lineDataSet.setCircleColor(Color.GREEN);
-        lineDataSet.setCircleRadius(6);
-        lineDataSet.setCircleHoleRadius(3);
-        lineDataSet.setDrawHighlightIndicators(true);
-        lineDataSet.setHighLightColor(Color.RED);
-        lineDataSet.setValueTextSize(12);
-        lineDataSet.setValueTextColor(Color.RED);
-
-        LineData lineData = new LineData(lineDataSet);
-
-        lineChart.getDescription().setText("Price in last 12 days");
-        lineChart.getDescription().setTextSize(12);
-        lineChart.setDrawMarkers(true);
-     //   lineChart.setMarker(markerView(context));
-//        lineChart.getAxisLeft().addLimitLine(lowerLimitLine(2,"Lower Limit",2,12,Color.YELLOW,Color.BLUE));
-//        lineChart.getAxisLeft().addLimitLine(upperLimitLine(5,"Upper Limit",2,12,Color.YELLOW,Color.BLUE));
-
-//        lineChart.getAxisLeft().addLimitLine(lower_limit);
-//        lineChart.getAxisLeft().addLimitLine(upper_limit);
+         //bar chart
 
 
-        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        lineChart.animateY(2000);
-        lineChart.getXAxis().setGranularityEnabled(true);
-        lineChart.getXAxis().setGranularity(1.0f);
-        lineChart.getXAxis().setLabelCount(lineDataSet.getEntryCount());
-        lineChart.setData(lineData);
+        barWidth = 0.3f;
+        barSpace = 0f;
+        groupSpace = 0.4f;
+
+        chart = (BarChart)findViewById(R.id.barChart);
+        chart.setDescription(null);
+        chart.setPinchZoom(false);
+        chart.setScaleEnabled(false);
+        chart.setDrawBarShadow(false);
+        chart.setDrawGridBackground(false);
+
+        int groupCount = 3;
+
+        ArrayList xVals = new ArrayList();
+
+        xVals.add("Jan");
+        xVals.add("Feb");
+        xVals.add("Mar");
+
+
+        ArrayList yVals1 = new ArrayList();
+        ArrayList yVals2 = new ArrayList();
+
+        yVals1.add(new BarEntry(1, (float) 1));
+        yVals2.add(new BarEntry(1, (float) 2));
+        yVals1.add(new BarEntry(2, (float) 3));
+        yVals2.add(new BarEntry(2, (float) 4));
+        yVals1.add(new BarEntry(3, (float) 5));
+        yVals2.add(new BarEntry(3, (float) 6));
+
+        BarDataSet set1, set2;
+        set1 = new BarDataSet(yVals1, "False");
+        set1.setColor(Color.RED);
+        set2 = new BarDataSet(yVals2, "Correct");
+        set2.setColor(Color.LTGRAY);
+        BarData data = new BarData(set1, set2);
+        data.setValueFormatter(new LargeValueFormatter());
+        chart.setData(data);
+        chart.getBarData().setBarWidth(barWidth);
+        chart.getXAxis().setAxisMinimum(0);
+        chart.getXAxis().setAxisMaximum(0 + chart.getBarData().getGroupWidth(groupSpace, barSpace) * groupCount);
+        chart.groupBars(0, groupSpace, barSpace);
+        chart.getData().setHighlightEnabled(false);
+        chart.invalidate();
+
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        l.setDrawInside(true);
+        l.setYOffset(20f);
+        l.setXOffset(0f);
+        l.setYEntrySpace(0f);
+        l.setTextSize(8f);
+
+//X-axis
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setGranularity(1f);
+        xAxis.setGranularityEnabled(true);
+        xAxis.setCenterAxisLabels(true);
+        xAxis.setDrawGridLines(false);
+        xAxis.setAxisMaximum(3);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(xVals));
+//Y-axis
+        chart.getAxisRight().setEnabled(false);
+        YAxis leftAxis = chart.getAxisLeft();
+        leftAxis.setValueFormatter(new LargeValueFormatter());
+        leftAxis.setDrawGridLines(true);
+        leftAxis.setSpaceTop(35f);
+        leftAxis.setAxisMinimum(0f);
 
 
 
-         //line chart
+         //bar chart
 
 
         computerHardWareTestResultHolderId = findViewById(R.id.computerHardWareTestResultHolderId);
@@ -221,6 +246,23 @@ public class SelfTestResultActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void addValuesToBARENTRY(){
+
+        BARENTRY.add(new BarEntry(1, 10));
+        BARENTRY.add(new BarEntry(2, 30));
+        BARENTRY.add(new BarEntry(3, 20));
+
+
+    }
+
+    public void addValuesToBarEntryLabels(){
+
+        barEntryLabels.add("January");
+        barEntryLabels.add("February");
+        barEntryLabels.add("March");
+
     }
 
 
